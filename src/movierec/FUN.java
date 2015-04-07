@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
-public class fun {
+public class FUN {
 	public static void showTip(String mes,String title){//弹出对话框窗口，进行操作提示
 		JOptionPane.showMessageDialog(null, mes, title,JOptionPane.INFORMATION_MESSAGE);
 	}
