@@ -3,15 +3,15 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.table.*;
 import javax.swing.border.*;
- public class myTableModel extends AbstractTableModel {
+ public class MyTableModel extends AbstractTableModel {
   private String headName[];
   private Object obj[][];
   
-  public myTableModel() {
+  public MyTableModel() {
    super();
   }
   
-  public myTableModel(String[] headName, Object[][] obj) {
+  public MyTableModel(String[] headName, Object[][] obj) {
    this();
    this.headName = headName;
    this.obj = obj;
