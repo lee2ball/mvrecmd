@@ -105,7 +105,7 @@ public class ItemBasedSim {
 			//System.out.println("----------3");
 		}catch(Exception e){
 			e.printStackTrace();
-		}//catch()
+		}
 		return pui;
 	}//comRecDegUI()
 	public double sim(int midi,int midj,int thID,DB mydb,DB uiddb){
