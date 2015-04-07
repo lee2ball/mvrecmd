@@ -25,22 +25,22 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 
-public class selectInfo {
+public class SelectInfo {
 	public JButton button;
 	public JLabel tId;
 	public String des;
-	public db mydb;//数据库连接
-	public db mydb1;//数据库连接
+	public DB mydb;//数据库连接
+	public DB mydb1;//数据库连接
 	public JPanel panelContent,panel;//操作的面板
 	public JRadioButton [] radio=new JRadioButton [3];
 	public JTextField tf=new JTextField(5);
 	public ButtonGroup group;
 	public GridBagLayout gbl;//布局管理器
 	public String sql="";//sql语句
-	public selectInfo(db mydb,JPanel panelContent,String des){
+	public SelectInfo(DB mydb,JPanel panelContent,String des){
 		this.des=des;
 		this.mydb=mydb;
-		this.mydb1=new db();
+		this.mydb1=new DB();
 		this.panelContent=panelContent;
 		tId=new JLabel("UserID:");
 		tId.setFont(new Font("宋体",Font.BOLD,20));
@@ -140,7 +140,7 @@ public class selectInfo {
 	}//getHaveCommInfo
 	public Object[][] getRecommendInfo(int uid) {
 		int num=0;
-		sql="select count(*) num from recom  where uid ='"+uid+"' and recdeg>='"+(sys.recThreshold-0.5)+"' limit 0,"+sys.recNum;
+		sql="select count(*) num from recom  where uid ='"+uid+"' and recdeg>='"+(SYS.recThreshold-0.5)+"' limit 0,"+SYS.recNum;
 		ResultSet mItems= mydb.executeQuery(sql);
 		try{
 			if(mItems.next())
@@ -272,7 +272,7 @@ public class selectInfo {
 		group.add(radio[0]);
 		group.add(radio[1]);
 		group.add(radio[2]);
-		JTable table = new JTable(new myTableModel(headName,obj));
+		JTable table = new JTable(new MyTableModel(headName,obj));
 		table.setDefaultRenderer(JButton.class, new ComboBoxCellRenderer());
 		table.getTableHeader().setFont(new Font("宋体",Font.BOLD,16));
 		table.setFont(new Font("宋体",Font.PLAIN,16));
@@ -348,10 +348,10 @@ public class selectInfo {
 			if(e.getActionCommand().equals("Search")){
 				String midIdStr=tf.getText().trim();
 				int midId;
-				if(fun.isInt(midIdStr))
+				if(FUN.isInt(midIdStr))
 					midId=new Integer (midIdStr);
 				else{
-					fun.showTip("Search box's content must be a valid integer!", "Tip");
+					FUN.showTip("Search box's content must be a valid integer!", "Tip");
 					return;
 				}
 				if(radio[1].isSelected()){	
