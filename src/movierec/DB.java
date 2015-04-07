@@ -4,15 +4,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-public class db {	
+public class DB {	
 	public String driver = "com.mysql.jdbc.Driver";
 	public String url = "jdbc:mysql://localhost:3306/movierecommender";
 	public String user = "root";
-	public String password = "******";
+	public String password = "pjf2000";
 	private Connection conn=null;
 	private Statement statement=null;
 	private ResultSet rs =null;
-	public db(){
+	public DB(){
         try { 
             // ????????????
             Class.forName(driver);
@@ -26,7 +26,7 @@ public class db {
         	e.printStackTrace();
         }
 	}//db()
-	public db(String driver,String url,String user,String password){
+	public DB(String driver,String url,String user,String password){
 		this.driver=driver;
 		this.url=url;
 		this.user=user;
